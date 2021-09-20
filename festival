@@ -1,0 +1,51 @@
+day_attraction_maxattraction=list(map(int,input("enter days,total attraction,and user can ride max attractions").split(" ")))
+print(day_attraction_maxattraction)
+a=day_attraction_maxattraction[1]
+days=0
+total_max_happiness=0
+h=0
+# print(a)
+attraction_values=[]
+i=0
+while i<a:
+    attarcations=list(map(int,input("enter happinesses,from day,until day").split(" ")))
+    attraction_values.append(attarcations)
+    i+=1
+at=attraction_values
+i=0
+
+def happiness(at,day_attraction_maxattraction,days,total_max_happiness,atr):
+     global i
+     global h
+     h=0
+     i=0
+     while i<len(at):
+        max_happyness = max(list(map(max, at)))
+
+        if max_happyness == at[i][0]:
+            # print(at[i][1])
+            # print(day_attraction_maxattraction[0])
+            if at[i][1]<day_attraction_maxattraction[0]:
+                total_max_happiness = total_max_happiness + max_happyness
+                # print(total_max_happiness)
+                days = days + at[i][1]
+                # print(days)
+                at.remove(at[i])
+                h+= 1
+                # print(atr)
+                i=0
+            else:
+                at.remove(at[i])
+                i=0
+            if h == day_attraction_maxattraction[2]:
+                break
+
+
+
+        else:
+            i+=1
+
+     print(total_max_happiness)
+
+happiness(at,day_attraction_maxattraction,days,total_max_happiness,h)
+
