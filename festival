@@ -23,6 +23,9 @@ def happiness(at,day_attraction_maxattraction,days,total_max_happiness,atr):
         max_happyness = max(list(map(max, at)))
 
         if max_happyness == at[i][0]:
+            if day_attraction_maxattraction[2]==1:
+                total_max_happiness=max_happyness
+                break
             # print(at[i][1])
             # print(day_attraction_maxattraction[0])
             if at[i][1]<day_attraction_maxattraction[0]:
@@ -48,4 +51,12 @@ def happiness(at,day_attraction_maxattraction,days,total_max_happiness,atr):
      print(total_max_happiness)
 
 happiness(at,day_attraction_maxattraction,days,total_max_happiness,h)
+
+
+
+
+
+
+
+
 
